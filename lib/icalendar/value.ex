@@ -56,7 +56,7 @@ defimpl Value, for: Tuple do
   """
   def to_ics(timestamp) when is_datetime_tuple(timestamp) do
     timestamp
-    |> Timex.to_datetime()
+    |> Calendar.DateTime.from_erl!("Etc/UTC")
     |> Value.to_ics()
   end
 
@@ -64,36 +64,30 @@ defimpl Value, for: Tuple do
 end
 
 defimpl Value, for: DateTime do
-  use Timex
-
   @doc """
   This function converts DateTimes to UTC timezone and then into Strings in the
   iCal format
   """
   def to_ics(%DateTime{} = timestamp) do
-    format_string = "{YYYY}{0M}{0D}T{h24}{m}{s}"
+    format_string = "%Y%m%dT%H%M%S"
 
-    {:ok, result} =
-      timestamp
-      |> Timex.format(format_string)
+    {:ok, result} = timestamp |> Calendar.Strftime.strftime(format_string)
 
     result
   end
 end
 
 defimpl Value, for: Date do
-  use Timex
-
   @doc """
   This function converts DateTimes to UTC timezone and then into Strings in the
   iCal format
   """
   def to_ics(%Date{} = timestamp) do
-    format_string = "{YYYY}{0M}{0D}"
+    format_string = "%Y%m%d"
 
     {:ok, result} =
       timestamp
-      |> Timex.format(format_string)
+      |> Calendar.Strftime.strftime(format_string)
 
     result
   end

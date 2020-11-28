@@ -5,7 +5,6 @@ defmodule ICalendar do
 
   defstruct events: []
   defdelegate to_ics(events, options \\ []), to: ICalendar.Serialize
-  defdelegate from_ics(events), to: ICalendar.Deserialize
 
   @doc """
   To create a Phoenix/Plug controller and view that output ics format:
