@@ -10,7 +10,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            END:VCALENDAR
            """
   end
@@ -22,7 +22,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//#{@vendor}//EN
+           PRODID:-//Plandela//#{@vendor}//EN
            END:VCALENDAR
            """
   end
@@ -31,7 +31,9 @@ defmodule ICalendarTest do
     events = [
       %ICalendar.Event{
         summary: "Film with Amy and Adam",
+        dtstamp: ~U[2015-12-10 07:30:00Z],
         dtstart: ~U[2015-12-24 08:30:00Z],
+        transp: "TRANSPARENT",
         dtend: ~U[2015-12-24 08:45:00Z],
         description: "Let's go see Star Wars."
       },
@@ -49,12 +51,14 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            DESCRIPTION:Let's go see Star Wars.
            DTEND:20151224T084500Z
+           DTSTAMP:20151210T073000Z
            DTSTART:20151224T083000Z
            SUMMARY:Film with Amy and Adam
+           TRANSP:TRANSPARENT
            END:VEVENT
            BEGIN:VEVENT
            DESCRIPTION:A big long meeting with lots of details.
@@ -83,7 +87,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            DESCRIPTION:Let's go see Star Wars\\, and have fun.
            DTEND:20151224T084500Z
@@ -113,7 +117,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            DESCRIPTION:Let's go see Star Wars\\, and have fun.
            DTEND:20151224T084500Z
@@ -151,7 +155,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            EXDATE;TZID=America/Toronto:20200916T143000
            EXDATE;TZID=America/Toronto:20200917T143000
@@ -185,7 +189,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            DESCRIPTION:Let's go see Star Wars.
            DTEND:20151224T084500Z
@@ -226,7 +230,7 @@ defmodule ICalendarTest do
            BEGIN:VCALENDAR
            CALSCALE:GREGORIAN
            VERSION:2.0
-           PRODID:-//Elixir ICalendar//Elixir ICalendar//EN
+           PRODID:-//Plandela//Plandela//EN
            BEGIN:VEVENT
            DESCRIPTION:Let's go see Star Wars.
            DTEND:20151224T084500Z
