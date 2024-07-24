@@ -28,9 +28,6 @@ defmodule ICalendar.Mixfile do
 
   defp deps do
     [
-      # Automatic test runner
-      {:mix_test_watch, ">= 0.0.0", only: :dev},
-
       # Markdown processor
       {:earmark, "~> 1.3", only: [:dev, :test]},
       # Documentation generator
